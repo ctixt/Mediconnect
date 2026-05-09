@@ -174,9 +174,9 @@ export default function LoginScreen({ navigation }: any) {
 
         <View style={styles.creditsBox}>
           <Text style={styles.creditsTitle}>Hecho por:</Text>
-          <Text style={styles.creditsText}>Nombre 1</Text>
-          <Text style={styles.creditsText}>Nombre 2</Text>
-          <Text style={styles.creditsText}>Nombre 3</Text>
+          <Text style={styles.creditsText}>Carlos Jobany Benedicto Tix Tix 1090-22-1758</Text>
+          <Text style={styles.creditsText}>Jeremías Francisco Ramírez Ceto 1090-22-7508</Text>
+          <Text style={styles.creditsText}>Daniel Esteban De Leon Villaseñor 1090-22-1445</Text>
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
