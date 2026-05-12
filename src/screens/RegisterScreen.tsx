@@ -18,6 +18,7 @@ export default function RegisterScreen({ navigation }: any) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const register = async () => {
@@ -117,14 +118,26 @@ export default function RegisterScreen({ navigation }: any) {
 
           <View style={styles.inputGroup}>
             <Text style={styles.label}>Contraseña</Text>
-            <TextInput
-              placeholder="Mínimo 6 caracteres"
-              value={password}
-              onChangeText={setPassword}
-              style={styles.input}
-              secureTextEntry
-              placeholderTextColor="#789287"
-            />
+
+            <View style={styles.passwordBox}>
+              <TextInput
+                placeholder="Mínimo 6 caracteres"
+                value={password}
+                onChangeText={setPassword}
+                style={styles.passwordInput}
+                secureTextEntry={!showPassword}
+                placeholderTextColor="#789287"
+              />
+
+              <Pressable
+                style={styles.eyeButton}
+                onPress={() => setShowPassword(!showPassword)}
+              >
+                <Text style={styles.eyeButtonText}>
+                  {showPassword ? 'Ocultar' : 'Ver'}
+                </Text>
+              </Pressable>
+            </View>
           </View>
 
           <Pressable
@@ -158,9 +171,9 @@ export default function RegisterScreen({ navigation }: any) {
 
         <View style={styles.creditsBox}>
           <Text style={styles.creditsTitle}>Hecho por:</Text>
-          <Text style={styles.creditsText}>Nombre 1</Text>
-          <Text style={styles.creditsText}>Nombre 2</Text>
-          <Text style={styles.creditsText}>Nombre 3</Text>
+          <Text style={styles.creditsText}>Carlos Jobany Benedicto Tix Tix 1090-22-1758</Text>
+          <Text style={styles.creditsText}>Jeremías Francisco Ramírez Ceto 1090-22-7508</Text>
+          <Text style={styles.creditsText}>Daniel Esteban De Leon Villaseñor 1090-22-1445</Text>
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -255,6 +268,35 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     color: '#1F3D2B',
     fontSize: 15,
+  },
+  passwordBox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#BFDCC8',
+    backgroundColor: '#FAFFFB',
+    borderRadius: 14,
+    paddingLeft: 13,
+    paddingRight: 8,
+  },
+  passwordInput: {
+    flex: 1,
+    paddingVertical: 13,
+    color: '#1F3D2B',
+    fontSize: 15,
+  },
+  eyeButton: {
+    backgroundColor: '#E5F4EA',
+    borderRadius: 10,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderWidth: 1,
+    borderColor: '#BFE3CB',
+  },
+  eyeButtonText: {
+    color: '#1F4D36',
+    fontWeight: '900',
+    fontSize: 12,
   },
   registerButton: {
     backgroundColor: '#2E7D4F',
